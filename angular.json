@@ -1,0 +1,866 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "345475a5-9849-4105-80b2-df2cf931c6b9"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ui-framework-template": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ui-framework-template",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
+              "src/styles.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/jszip/dist/jszip.js",
+              "node_modules/datatables.net-buttons/js/dataTables.buttons.js",
+              "node_modules/datatables.net-buttons/js/buttons.colVis.js",
+              "node_modules/datatables.net-buttons/js/buttons.flash.js",
+              "node_modules/datatables.net-buttons/js/buttons.html5.js",
+              "node_modules/datatables.net-buttons/js/buttons.print.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ui-framework-template:build:production"
+            },
+            "development": {
+              "browserTarget": "ui-framework-template:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ui-framework-template:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "cargill-carousel": {
+      "projectType": "library",
+      "root": "projects/cargill-carousel",
+      "sourceRoot": "projects/cargill-carousel/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-carousel/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-carousel/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-carousel/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-carousel/src/test.ts",
+            "tsConfig": "projects/cargill-carousel/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-carousel/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-progressbar": {
+      "projectType": "library",
+      "root": "projects/cargill-progressbar",
+      "sourceRoot": "projects/cargill-progressbar/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-progressbar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-progressbar/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-progressbar/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-progressbar/src/test.ts",
+            "tsConfig": "projects/cargill-progressbar/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-progressbar/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-card": {
+      "projectType": "library",
+      "root": "projects/cargill-card",
+      "sourceRoot": "projects/cargill-card/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-card/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-card/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-card/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-card/src/test.ts",
+            "tsConfig": "projects/cargill-card/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-card/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-tiles": {
+      "projectType": "library",
+      "root": "projects/cargill-tiles",
+      "sourceRoot": "projects/cargill-tiles/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-tiles/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-tiles/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-tiles/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-tiles/src/test.ts",
+            "tsConfig": "projects/cargill-tiles/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-tiles/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-tile": {
+      "projectType": "library",
+      "root": "projects/cargill-tile",
+      "sourceRoot": "projects/cargill-tile/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-tile/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-tile/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-tile/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-tile/src/test.ts",
+            "tsConfig": "projects/cargill-tile/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-tile/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-cards": {
+      "projectType": "library",
+      "root": "projects/cargill-cards",
+      "sourceRoot": "projects/cargill-cards/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-cards/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-cards/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-cards/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-cards/src/test.ts",
+            "tsConfig": "projects/cargill-cards/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-cards/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-image-cards": {
+      "projectType": "library",
+      "root": "projects/cargill-image-cards",
+      "sourceRoot": "projects/cargill-image-cards/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-image-cards/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-image-cards/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-image-cards/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-image-cards/src/test.ts",
+            "tsConfig": "projects/cargill-image-cards/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-image-cards/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-collapse": {
+      "projectType": "library",
+      "root": "projects/cargill-collapse",
+      "sourceRoot": "projects/cargill-collapse/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-collapse/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-collapse/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-collapse/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-collapse/src/test.ts",
+            "tsConfig": "projects/cargill-collapse/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-collapse/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-alert": {
+      "projectType": "library",
+      "root": "projects/cargill-alert",
+      "sourceRoot": "projects/cargill-alert/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-alert/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-alert/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-alert/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-alert/src/test.ts",
+            "tsConfig": "projects/cargill-alert/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-alert/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-spinner": {
+      "projectType": "library",
+      "root": "projects/cargill-spinner",
+      "sourceRoot": "projects/cargill-spinner/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-spinner/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-spinner/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-spinner/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-spinner/src/test.ts",
+            "tsConfig": "projects/cargill-spinner/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-spinner/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-list-group": {
+      "projectType": "library",
+      "root": "projects/cargill-list-group",
+      "sourceRoot": "projects/cargill-list-group/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-list-group/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-list-group/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-list-group/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-list-group/src/test.ts",
+            "tsConfig": "projects/cargill-list-group/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-list-group/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-modal": {
+      "projectType": "library",
+      "root": "projects/cargill-modal",
+      "sourceRoot": "projects/cargill-modal/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-modal/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-modal/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-modal/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-modal/src/test.ts",
+            "tsConfig": "projects/cargill-modal/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-modal/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-primary-button": {
+      "projectType": "library",
+      "root": "projects/cargill-primary-button",
+      "sourceRoot": "projects/cargill-primary-button/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-primary-button/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-primary-button/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-primary-button/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-primary-button/src/test.ts",
+            "tsConfig": "projects/cargill-primary-button/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-primary-button/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-button": {
+      "projectType": "library",
+      "root": "projects/cargill-button",
+      "sourceRoot": "projects/cargill-button/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-button/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-button/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-button/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-button/src/test.ts",
+            "tsConfig": "projects/cargill-button/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-button/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-input": {
+      "projectType": "library",
+      "root": "projects/cargill-input",
+      "sourceRoot": "projects/cargill-input/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-input/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-input/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-input/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-input/src/test.ts",
+            "tsConfig": "projects/cargill-input/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-input/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-textarea": {
+      "projectType": "library",
+      "root": "projects/cargill-textarea",
+      "sourceRoot": "projects/cargill-textarea/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-textarea/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-textarea/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-textarea/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-textarea/src/test.ts",
+            "tsConfig": "projects/cargill-textarea/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-textarea/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-select": {
+      "projectType": "library",
+      "root": "projects/cargill-select",
+      "sourceRoot": "projects/cargill-select/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-select/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-select/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-select/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-select/src/test.ts",
+            "tsConfig": "projects/cargill-select/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-select/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-heading": {
+      "projectType": "library",
+      "root": "projects/cargill-heading",
+      "sourceRoot": "projects/cargill-heading/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-heading/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-heading/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-heading/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-heading/src/test.ts",
+            "tsConfig": "projects/cargill-heading/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-heading/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-sub-heading": {
+      "projectType": "library",
+      "root": "projects/cargill-sub-heading",
+      "sourceRoot": "projects/cargill-sub-heading/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-sub-heading/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-sub-heading/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-sub-heading/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-sub-heading/src/test.ts",
+            "tsConfig": "projects/cargill-sub-heading/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-sub-heading/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-datepicker": {
+      "projectType": "library",
+      "root": "projects/cargill-datepicker",
+      "sourceRoot": "projects/cargill-datepicker/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-datepicker/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-datepicker/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-datepicker/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-datepicker/src/test.ts",
+            "tsConfig": "projects/cargill-datepicker/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-datepicker/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-checkbox": {
+      "projectType": "library",
+      "root": "projects/cargill-checkbox",
+      "sourceRoot": "projects/cargill-checkbox/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-checkbox/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-checkbox/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-checkbox/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-checkbox/src/test.ts",
+            "tsConfig": "projects/cargill-checkbox/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-checkbox/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-radio-button": {
+      "projectType": "library",
+      "root": "projects/cargill-radio-button",
+      "sourceRoot": "projects/cargill-radio-button/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-radio-button/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-radio-button/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-radio-button/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-radio-button/src/test.ts",
+            "tsConfig": "projects/cargill-radio-button/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-radio-button/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-file-upload": {
+      "projectType": "library",
+      "root": "projects/cargill-file-upload",
+      "sourceRoot": "projects/cargill-file-upload/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-file-upload/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-file-upload/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-file-upload/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-file-upload/src/test.ts",
+            "tsConfig": "projects/cargill-file-upload/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-file-upload/karma.conf.js"
+          }
+        }
+      }
+    },
+    "cargill-table": {
+      "projectType": "library",
+      "root": "projects/cargill-table",
+      "sourceRoot": "projects/cargill-table/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/cargill-table/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cargill-table/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/cargill-table/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cargill-table/src/test.ts",
+            "tsConfig": "projects/cargill-table/tsconfig.spec.json",
+            "karmaConfig": "projects/cargill-table/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ui-framework-template"
+}

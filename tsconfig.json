@@ -1,0 +1,128 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "cargill-alert": [
+        "dist/cargill-alert/cargill-alert",
+        "dist/cargill-alert"
+      ],
+      "cargill-button": [
+        "dist/cargill-button/cargill-button",
+        "dist/cargill-button"
+      ],
+      "cargill-card": [
+        "dist/cargill-card/cargill-card",
+        "dist/cargill-card"
+      ],
+      "cargill-cards": [
+        "dist/cargill-cards/cargill-cards",
+        "dist/cargill-cards"
+      ],
+      "cargill-carousel": [
+        "dist/cargill-carousel/cargill-carousel",
+        "dist/cargill-carousel"
+      ],
+      "cargill-checkbox": [
+        "dist/cargill-checkbox/cargill-checkbox",
+        "dist/cargill-checkbox"
+      ],
+      "cargill-collapse": [
+        "dist/cargill-collapse/cargill-collapse",
+        "dist/cargill-collapse"
+      ],
+      "cargill-datepicker": [
+        "dist/cargill-datepicker/cargill-datepicker",
+        "dist/cargill-datepicker"
+      ],
+      "cargill-file-upload": [
+        "dist/cargill-file-upload/cargill-file-upload",
+        "dist/cargill-file-upload"
+      ],
+      "cargill-heading": [
+        "dist/cargill-heading/cargill-heading",
+        "dist/cargill-heading"
+      ],
+      "cargill-image-cards": [
+        "dist/cargill-image-cards/cargill-image-cards",
+        "dist/cargill-image-cards"
+      ],
+      "cargill-input": [
+        "dist/cargill-input/cargill-input",
+        "dist/cargill-input"
+      ],
+      "cargill-list-group": [
+        "dist/cargill-list-group/cargill-list-group",
+        "dist/cargill-list-group"
+      ],
+      "cargill-modal": [
+        "dist/cargill-modal/cargill-modal",
+        "dist/cargill-modal"
+      ],
+      "cargill-primary-button": [
+        "dist/cargill-primary-button/cargill-primary-button",
+        "dist/cargill-primary-button"
+      ],
+      "cargill-progressbar": [
+        "dist/cargill-progressbar/cargill-progressbar",
+        "dist/cargill-progressbar"
+      ],
+      "cargill-radio-button": [
+        "dist/cargill-radio-button/cargill-radio-button",
+        "dist/cargill-radio-button"
+      ],
+      "cargill-select": [
+        "dist/cargill-select/cargill-select",
+        "dist/cargill-select"
+      ],
+      "cargill-spinner": [
+        "dist/cargill-spinner/cargill-spinner",
+        "dist/cargill-spinner"
+      ],
+      "cargill-sub-heading": [
+        "dist/cargill-sub-heading/cargill-sub-heading",
+        "dist/cargill-sub-heading"
+      ],
+      "cargill-table": [
+        "dist/cargill-table/cargill-table",
+        "dist/cargill-table"
+      ],
+      "cargill-textarea": [
+        "dist/cargill-textarea/cargill-textarea",
+        "dist/cargill-textarea"
+      ],
+      "cargill-tile": [
+        "dist/cargill-tile/cargill-tile",
+        "dist/cargill-tile"
+      ],
+      "cargill-tiles": [
+        "dist/cargill-tiles/cargill-tiles",
+        "dist/cargill-tiles"
+      ]
+    },
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "es2020",
+    "lib": [
+      "es2018",
+      "dom"
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}
