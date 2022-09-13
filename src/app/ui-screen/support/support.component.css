@@ -1,0 +1,12 @@
+.accordian-header {
+    background: linear-gradient(10deg, black 5%, #003641 100%);
+    color: white;
+    text-shadow:2px 2px 5px black;
+    font-size: 0.9rem;
+    padding-left: 20px;
+    border-radius: .25rem;
+}
+
+
+
+  
