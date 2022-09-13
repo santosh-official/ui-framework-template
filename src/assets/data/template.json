@@ -1,0 +1,59 @@
+{
+    "layout": "header-footer-sidebar",
+    "projectName": "Standard UI Template",
+    "navbarItems": [
+        {
+            "title": "Home",
+            "path": "home",
+            "haveSubItem": false
+        },
+        {
+            "title": "About",
+            "path": "about",
+            "haveSubItem": false
+        },
+        {
+            "title": "Service",
+            "path": "service",
+            "haveSubItem": true,
+            "subItems": [
+                {
+                    "title": "Home",
+                    "path": "home"
+                },
+                {
+                    "title": "About",
+                    "path": "about"
+                }
+            ]
+        }
+    ],
+    "sidebarItems": [
+        {
+            "title": "Tables",
+            "path": "tables",
+            "icon": "fa fa-fw fa-table"
+        },
+        {
+            "title": "Forms",
+            "path": "forms",
+            "icon": "fa fa-fw fa-edit"
+        },
+        {
+            "title": "Element",
+            "path": "element",
+            "icon": "fa fa-fw fa-desktop"
+        },
+        {
+            "title": "Settings",
+            "path": "settings",
+            "icon": "fa fa-fw fa-wrench"
+        },
+        {
+            "title": "Component",
+            "path": "component",
+            "icon": "fa fa-th-list"
+        }
+    ],
+    "searchBar": true
+}
