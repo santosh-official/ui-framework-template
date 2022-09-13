@@ -1,0 +1,136 @@
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-item:hover {
+    border-radius: 5px;
+    text-shadow: 2px 2px 5px black;
+}
+
+.dropdown-item {
+    text-shadow: none;
+}
+
+.dropdown-item:hover {
+    text-shadow: 2px 2px 5px black;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.profile-dropdown {
+    width: 380px;
+    padding: 10px;
+}
+
+.search-field {
+    border-radius: 5px;
+    width: 200px;
+    transition: all 0.5s;
+}
+
+.search-field:hover {
+    width: 300px;
+    padding-right: 20px;
+}
+
+.wrapper {
+    display: block;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -255px;
+    z-index: 999;
+    transition: all .3s;
+    box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.5);
+    text-align: left;
+    margin-top: 59px;
+    opacity: 0.9;
+    -webkit-transition: all 2s ease 0s;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar .list-group a.list-group-item {
+    text-shadow: 2px 2px 5px black;
+    border: 0;
+    border-radius: 0;
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.sidebar .list-group a:hover {
+    background: #666;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    width: 253px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.content {
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(51, 51, 51, 0.7);
+    z-index: 998;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+.open-menu {
+    color: white;
+}
+
+.footer {
+    padding: 0px;
+}
+
+.support-icon {
+    bottom: 0px;
+    right: 0px;
+}
+
+.sidebar-btn {
+    display: inline-block;
+    background: linear-gradient(10deg, black 5%, #003641 100%);
+    background-image: url("https://www.transparenttextures.com/patterns/dark-denim.png");
+    color: white;
+    border: transparent;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    user-select: none;
+    padding: .2rem 3rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    position: fixed;
+    margin-left: 210px;
+    margin-top: 350px;
+}

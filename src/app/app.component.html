@@ -1,0 +1,68 @@
+<div class="wrapper">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" aria-label="cargill-navbar">
+        <a class="navbar-brand mr-4" href="https://www.cargill.co.in/">
+            <img src="../../../assets/images/cargill-logo/cargill-white-logo.png" height="40" alt="Cargill Logo"
+                style="margin-top: -10px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="collapsingNavbar">
+            <ul class="navbar-nav" *ngFor="let item of navbarItems">
+                <span *ngIf="!item.haveSubItem">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="{{item.path}}">{{item.title}}</a>
+                    </li>
+                </span>
+                <span *ngIf="item.haveSubItem">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{item.title}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a *ngFor="let subitem of item.subItems" class="dropdown-item"
+                                routerLink="{{subitem.path}}">{{subitem.title}}</a>
+                        </div>
+                    </li>
+                </span>
+            </ul>
+            <ul class="navbar-nav ml-auto" *ngIf="searchBar">
+                <form class="form-inline">
+                    <input class="form-control form-control-sm mr-sm-2 search-field" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-sm my-2 my-sm-0" type="submit"><i class="fas fa-search"
+                            aria-hidden="true"></i></button>
+                </form>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <div class="dropdown">
+                    <span class="mr-3">{{userdetails.name}}</span>
+                    <img src="{{userdetails.image}}" alt="profile-image" height="30" class="rounded-circle">
+                </div>
+            </ul>
+        </div>
+    </nav>
+    <nav class="sidebar" aria-label="cargill-sidebar">
+        <span *ngIf="sidebarItems?.length !== 0" class="open-menu sidebar-btn"><i class="fa fa-chevron-up"
+                aria-hidden="true"></i></span>
+        <div class="list-group" *ngFor="let item of sidebarItems">
+            <a [routerLinkActive]="['router-link-active']" routerLink="{{item.path}}" class="list-group-item">
+                <i class="{{item.icon}}" aria-hidden="true"></i>&nbsp;
+                <span>{{item.title}}</span>
+            </a>
+        </div>
+    </nav>
+    <footer class="navbar footer fixed-bottom">
+        <div class="mx-auto">
+            <small>© {{year}} Cargill, Incorporated. All Rights Reserved.</small>
+        </div>
+    </footer>
+    <div class="overlay"></div>
+    <div class="content pt-3 pb-5" style="margin-top: 58px;">
+        <span class="position-fixed support-icon p-5" role="button">
+            <img src="../assets/images/support.png" alt="support-image" height="40px" (click)="support()">
+        </span>
+        <router-outlet></router-outlet>
+    </div>
+</div>
