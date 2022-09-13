@@ -1,1 +1,1 @@
-
+// Instead of directly add the text to HTML file you can add here and use, which makes your application clean and readable.
